@@ -1,0 +1,23 @@
+@import url('//fonts.googleapis.com/css?family=Raleway&display=sw');
+
+*{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-control {
+    margin-left: 540px;
+    min-width: 5px;
+    max-width: 300px;
+}
+
+.btn-primary{
+    margin-bottom: 25px;
+}
+
+.btn-danger{
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+  
