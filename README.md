@@ -8,7 +8,7 @@ Variables:
 
 apiKey: "",
 
-uthDomain: "",
+authDomain: "",
 
 databaseURL: "",
 
