@@ -1,9 +1,9 @@
 import React from 'react'
 
-const HeaderComment = () => {
+const HeaderComments = () => {
     return(
         <h1>Comentaki Service</h1>
     )
 }
 
-export default HeaderComment
+export default HeaderComments

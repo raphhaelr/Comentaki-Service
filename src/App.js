@@ -1,28 +1,26 @@
 import React from 'react'
-
-import './style.css'
-import NewComment from './NewComment'
-import Comments from './Comments'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { AuthProvider } from './auth'
-import CreateUser from './CreateUser'
-import UserInfo from './UserInfo'
-import SignInUser from './SignInUser'
-import HeaderComments from './HeaderComments'
+import './style.css'
+import CreateUser from './pages/CreateUser'
+import UserInfo from './elements/UserInfo'
+import Header from './elements/Header.js'
+import CommentsPage from './pages/CommentsPage'
+import SignInUser from './pages/SignInUser'
 
 function App() {
-  
-
   return (
-    <AuthProvider>
-      <div>
-        <HeaderComments/>
-        <NewComment />
-        <Comments />
-        <CreateUser/>
-        <SignInUser/>
-        <UserInfo />
-      </div>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <div>
+          <Header />
+          <Route path='/' exact component={SignInUser} />
+          <Route path='/comment' exact component={CommentsPage} />
+          <Route path='/register' exact component={CreateUser} />
+          <Route path='/userconfig' exact component={UserInfo} />
+        </div>
+      </AuthProvider>
+    </Router>
   )
 }
 

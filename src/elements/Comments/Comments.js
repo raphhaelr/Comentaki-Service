@@ -1,5 +1,5 @@
 import React from 'react'
-import {useDatabase} from './database'
+import {useDatabase} from '../../database'
 import {Comment} from './Comment'
 
 const Comments = () => {

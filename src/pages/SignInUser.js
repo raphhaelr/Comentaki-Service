@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react'
-import { AuthContext } from './auth'
+import { AuthContext } from '../auth'
+import { Link, Redirect } from 'react-router-dom'
+import { NavLink } from 'reactstrap'
+import HeaderComments from '../elements/Comments/HeaderComments'
 
 const SignInUser = () => {
     const auth = useContext(AuthContext)
-      
+
     const [form, setForm] = useState({ email: '', password: '' })
 
     const onChange = campo => evt => {
@@ -14,29 +17,34 @@ const SignInUser = () => {
     }
 
     const EnterPress = event => {
-        if(event.key === 'Enter'){
+        if (event.key === 'Enter') {
             auth.signInUser.signInUser(form.email, form.password)
         }
     }
 
     if (auth.user !== null) {
-        return null
+        return <Redirect to='/comment' />
     }
+
     return (
         <React.Fragment>
-            <h3>Entrar</h3>
+            <HeaderComments />
+            <br />
+            <h3>Sign In</h3>
             {
                 auth.signInUser.signInUserState !== '' &&
                 <p>{auth.signInUser.signInUserState.error}</p>
             }
-            <input className='form-control' type='text' placeholder='Seu email' value={form.email} onChange={onChange('email')} onKeyPress={EnterPress}/>
-            <input className='form-control' type='password' placeholder='Sua senha' value={form.password} onChange={onChange('password')} onKeyPress={EnterPress}/>
-            <br/>
+            <input className='form-control' type='text' placeholder='Seu email' value={form.email} onChange={onChange('email')} onKeyPress={EnterPress} />
+            <input className='form-control' type='password' placeholder='Sua senha' value={form.password} onChange={onChange('password')} onKeyPress={EnterPress} />
             <button className='btn btn-primary btn-sm' onClick={() => {
                 auth.signInUser.signInUser(form.email, form.password)
             }}>Entrar na sua conta</button>
+            <br />
+            <label>OR</label>
+            <NavLink tag={Link} to='/register'>Create account</NavLink>
         </React.Fragment>
     )
 }
-//<button type="button" class="btn btn-primary">Primary</button>
+
 export default SignInUser

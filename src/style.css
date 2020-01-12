@@ -7,17 +7,23 @@
 }
 
 .form-control {
-    margin-left: 540px;
-    min-width: 5px;
-    max-width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    min-width: 330px;
+    max-width: 330px;
 }
 
 .btn-primary{
-    margin-bottom: 25px;
+    min-width: 230px;
+    max-width: 230px;
 }
 
 .btn-danger{
     margin-left: 10px;
     margin-bottom: 25px;
 }
-  
+
+
+
+
+

@@ -68,9 +68,6 @@ const signout = () => {
     firebase
         .auth()
         .signOut()
-        .then(() => {
-            console.log('signout')
-        })
 }
 
 

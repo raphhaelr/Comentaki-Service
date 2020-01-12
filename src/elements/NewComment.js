@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { useDatabasePush } from './database'
-import firebase from './firebase'
-import { AuthContext } from './auth'
+import { useDatabasePush } from '../database'
+import firebase from '../firebase'
+import { AuthContext } from '../auth'
+import {Redirect} from 'react-router-dom'
 
 const NewComment = () => {
     const [, save] = useDatabasePush('comments')
@@ -10,7 +11,7 @@ const NewComment = () => {
     const auth = useContext(AuthContext)
     
     if(auth.user === null){
-        return null
+        return <Redirect to='/'/>
     }
 
     const { displayName } = auth.user
